@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: read-pods-binding
+  namespace: secure-app
+subjects:
+- kind: ServiceAccount
+  name: secure-app-sa
+roleRef:
+  kind: Role
+  name: read-pods
+  apiGroup: rbac.authorization.k8s.io
